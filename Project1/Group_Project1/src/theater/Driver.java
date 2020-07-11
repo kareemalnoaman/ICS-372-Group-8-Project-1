@@ -87,7 +87,7 @@ public class Driver {
 				theater.addCustomer(customerName, customerAddress, customerPhone, creditCardNumber, expiryDate);
 			}
 
-			if(ans == 5){
+			if(ans == 5) {
 				int customerID;
 
 				System.out.println("\nEnter ID of customer to be removed:");
