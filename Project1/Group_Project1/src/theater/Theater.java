@@ -51,7 +51,7 @@ public class Theater implements Serializable {
         for(int i = 0; i < clientList.size(); i++){
             if(clientID == clientList.get(i).getClientID()){
             	for(int j = 0; j < playList.size(); j++){
-            		if(clientID == playList.get(j).getClientId()){
+            		if(clientID == playList.get(j).getClientID()){
             			Date todayDate = new Date();
             			if(!todayDate.before(playList.get(j).getPlayStartDate())){
             				System.out.println("Cannot remove Client; has show scheduled for future date.");
@@ -287,7 +287,7 @@ public class Theater implements Serializable {
     			showListBuilder
     			.append(show.getPlayName())
     			.append("|")
-    			.append(show.getClientId())
+    			.append(show.getClientID())
     			.append("|")
     			.append(df.format(show.getPlayStartDate()))
     			.append("|")

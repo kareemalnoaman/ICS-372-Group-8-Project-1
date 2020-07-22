@@ -4,24 +4,24 @@ import java.util.Date;
 
 public class Show {
 	
-	private int clientId;
+	private int clientID;
 	private String playName;
 	private Date playStartDate;
 	private Date playEndDate;
 	 
 	 public Show(String playName, int clientId, Date startDate, Date endDate) {
 		 this.playName = playName;
-		 this.clientId = clientId;
+		 this.clientID = clientId;
 		 playStartDate = startDate;
 	     playEndDate = endDate;
 	 }
 	 
-	public int getClientId() {
-		return clientId;
+	public int getClientID() {
+		return clientID;
 	}
 	
-	public void setClientId(int clientId) {
-		this.clientId = clientId;
+	public void setClientID(int clientID) {
+		this.clientID = clientID;
 	}
 	 
 	public String getPlayName() {
@@ -50,7 +50,7 @@ public class Show {
 
 	@Override
 	public String toString() {
-		return "\n Client Id = \t" + clientId + ", Show Name =\t" + playName + ", Show StartDate =\t" + playStartDate
+		return "\n Client Id = \t" + clientID + ", Show Name =\t" + playName + ", Show StartDate =\t" + playStartDate
 				+ ", Show End Date = \t" + playEndDate;
 	}
 
