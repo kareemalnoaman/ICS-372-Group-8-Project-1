@@ -17,7 +17,7 @@ public class Customer {
         this.customerID = customerID;
     }
 
-    public void addCreditCard(int creditCardNumber, String expiryDate){
+    public void addCreditCard(String creditCardNumber, String expiryDate){
         CreditCard card = new CreditCard(creditCardNumber, expiryDate);
         creditCardList.add(card);
     }
@@ -44,10 +44,10 @@ public class Customer {
 
 class CreditCard {
 
-    int creditCardNumber;
+    String creditCardNumber;
     String expiryDate;
 
-    CreditCard(int creditCardNumber, String expiryDate){
+    CreditCard(String creditCardNumber, String expiryDate){
         this.creditCardNumber = creditCardNumber;
         this.expiryDate = expiryDate;
     }

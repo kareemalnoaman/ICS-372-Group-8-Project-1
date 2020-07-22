@@ -70,8 +70,7 @@ public class Driver {
 				System.out.println("\nEnter customer phone:");
 				String customerPhone = clientAns.nextLine();
 				System.out.println("\nEnter customer Credit Card number:");
-				int creditCardNumber = clientAns.nextInt();
-				clientAns.nextLine();//clear input buffer
+				String creditCardNumber = clientAns.nextLine();
 				System.out.println("\nEnter customer Credit Card expiry date in the form MM/YY:");
 				String expiryDate = clientAns.nextLine();
 
@@ -89,14 +88,14 @@ public class Driver {
 			} else if(ans == 6){
 
 				int customerID;
-				int creditCardNumber;
+				String creditCardNumber;
 				String expiryDate;
 
 				System.out.println("\nEnter ID of customer:");
 				customerID = clientAns.nextInt();
-				System.out.println("\nEnter customer's Credit Card number:");
-				creditCardNumber = clientAns.nextInt();
 				clientAns.nextLine();//clear input buffer
+				System.out.println("\nEnter customer's Credit Card number:");
+				creditCardNumber = clientAns.nextLine();
 				System.out.println("\nEnter Credit Card Number expiry date in the form MM/YY:");
 				expiryDate = clientAns.nextLine();
 
@@ -104,9 +103,9 @@ public class Driver {
 
 			} else if(ans == 7){
 
-				int creditCardNumber;
+				String creditCardNumber;
 				System.out.println("\nEnter Credit Card number to be removed:");
-				creditCardNumber = clientAns.nextInt();
+				creditCardNumber = clientAns.nextLine();
 				theater.removeCreditCard(creditCardNumber);
 
 			} else if(ans == 8){

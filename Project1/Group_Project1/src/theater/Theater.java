@@ -74,7 +74,7 @@ public class Theater implements Serializable {
     }
 
     public void addCustomer(String customerName, String customerAddress, String customerPhone,
-							int creditCardNumber, String expiryDate){
+							String creditCardNumber, String expiryDate){
         int customerID = ++numOfCustomers;//used to ensure id is always unique
         Customer customer = new Customer(customerName, customerAddress, customerPhone, customerID);
         customer.addCreditCard(creditCardNumber, expiryDate);
@@ -94,7 +94,7 @@ public class Theater implements Serializable {
     
     //loops through all customers and if it find the customer with the corresponding ID
     //will add the credit card information as a new CreditCard object to its creditCardList
-    public void addCustomerCreditCard(int customerID, int creditCardNumber, String expiryDate) {
+    public void addCustomerCreditCard(int customerID, String creditCardNumber, String expiryDate) {
         for (int i = 0; i < customerList.size(); i++) {
             if (customerID == customerList.get(i).customerID) {
                 customerList.get(i).addCreditCard(creditCardNumber, expiryDate);
@@ -106,7 +106,7 @@ public class Theater implements Serializable {
     //nested loop that loops through all customers in the customer list and their creditCard lists
     //until the credit card is found, once the credit card is found the credit card entry in the list
     //is deleted unless the credit card is the only one in the list
-    public void removeCreditCard(int creditCardNumber){
+    public void removeCreditCard(String creditCardNumber){
         for (int i = 0; i < customerList.size(); i++) {
             for (int j = 0; j < customerList.get(i).creditCardList.size(); j++){
                 if(customerList.get(i).creditCardList.get(j).creditCardNumber == creditCardNumber){
@@ -342,7 +342,7 @@ public class Theater implements Serializable {
 					String[] cLine = line.split(":");
 					if (cLine != null && cLine.length > 1) {
 						String[] creditCardLine = cLine[1].split("\\|");
-						customer.addCreditCard(Integer.parseInt(creditCardLine[0]), creditCardLine[1]);
+						customer.addCreditCard(creditCardLine[0], creditCardLine[1]);
 					}
 					theater.customerList.add(customer);
 				}
