@@ -144,7 +144,7 @@ public class Driver {
 
 				showAllCommands();
 			} else{
-				System.out.println("Input must be between 1-13, try again.");
+				System.out.println("Input must be between 0-13, try again.");
 			}
 
 		} while (ans != 0);
