@@ -5,10 +5,9 @@ public class Customer {
 
     String customerName;
     String customerAddress;
-
     String customerPhone;
-    ArrayList<CreditCard> creditCardList;
     int customerID;
+    ArrayList<CreditCard> creditCardList;
 
     public Customer(String customerName, String customerAddress, String customerPhone, int customerID) {
         this.customerName = customerName;
@@ -29,19 +28,24 @@ public class Customer {
         //String creditCardList = "";
 
         //for(int i = 0; i < this.creditCardList.size(); i++){
-        //    creditCardList += this.creditCardList.get(i);
+        //    creditCardList = creditCardList + this.creditCardList.get(i);
+        //}
+
+        //for(int i = 0; i < this.creditCardList.size(); i++){
+        //    creditCardList = creditCardList + this.creditCardList.get(i).creditCardNumber + ", ";
+        //    creditCardList = creditCardList + this.creditCardList.get(i).expiryDate + " ";
         //}
 
         return "Customer{" +
                 "customerName='" + customerName + '\'' +
                 ", customerAddress='" + customerAddress + '\'' +
                 ", customerPhone=" + customerPhone +
-                ", creditCardList=" + creditCardList +
+                ", creditCardList=" + creditCardList.get(0) +
                 ", customerID=" + customerID +
                 '}';
     }
 
-}
+}//end customer
 
 class CreditCard {
 

@@ -1,7 +1,6 @@
 package theater;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -15,24 +14,22 @@ import java.util.List;
 
 public class Theater implements Serializable {
 
-    String theaterName;//name of the Theater
-    int capacity;//capacity of the theater, is flexible, can be changed via changeCapacity method
-    ArrayList<Client> clientList;//list of all currently registered clients
-    ArrayList<Customer> customerList;//list of all currently registered members
-    ArrayList<Show> playList = new ArrayList<Show>(); // list of all the shows 
-    int numOfClients;//holds total number of clients ever had, using this number to ensure ID is never repeated
-    //just using the size of the array wouldnt be accurate as clients can be removed and added and could have repeating numbers
-    int numOfCustomers;//same as above except for customers
-    static String home = System.getProperty("user.home"); // home directory
-    static String fileSeperator = File.separator;
+    String theaterName;
+    int capacity;
+    ArrayList<Client> clientList = new ArrayList<Client>();//list of all currently registered clients
+    ArrayList<Customer> customerList = new ArrayList<Customer>();//list of all currently registered members
+    ArrayList<Show> playList = new ArrayList<Show>(); // list of all the shows
+    static String homeDirectory = System.getProperty("user.home"); // home directory
+    static String fileSeparator = File.separator;
     static String theaterDirectory = "theater";
     static DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	int numOfClients;//holds total number of clients ever had, using this number to ensure ID is never repeated
+	                 //just using the size of the array wouldnt be accurate as clients can be removed and added and could have repeating numbers
+	int numOfCustomers;//same as above except for customers
 
     public Theater(String theaterName, int capacity) {//Theater constructor
         this.theaterName = theaterName;
         this.capacity = capacity;
-        this.clientList = new ArrayList<Client>();
-        this.customerList = new ArrayList<Customer>();
         this.numOfClients = 0;
         this.numOfCustomers = 0;
     }
@@ -77,7 +74,7 @@ public class Theater implements Serializable {
         for(int i = 0; i < customerList.size(); i++){//loop that goes through all customers and
             // if it finds the ID will remove the corresponding customer
             if(customerID == customerList.get(i).customerID){
-                    customerList.remove(i);
+            	customerList.remove(i);
                 return;
             }//end if
         }
@@ -102,7 +99,7 @@ public class Theater implements Serializable {
         for (int i = 0; i < customerList.size(); i++) {
             for (int j = 0; j < customerList.get(i).creditCardList.size(); j++){
                 if(customerList.get(i).creditCardList.get(j).creditCardNumber == creditCardNumber){
-                    if(customerList.get(i).creditCardList.size() > 0)
+                    if(customerList.get(i).creditCardList.size() > 1)
                         customerList.get(i).creditCardList.remove(j);
                     return;
                 }
@@ -125,7 +122,6 @@ public class Theater implements Serializable {
      * @param startDate-start date of show
      * @param endDate- end date of show
      */
-    
     public void addShow(String playName, int clientId, Date startDate, Date endDate) {
     	
     	//Check if the client exists. Is 0 a valid client id.
@@ -151,13 +147,15 @@ public class Theater implements Serializable {
     		return;
     	}
     	
-    	
     	Show show = new Show(playName, clientId, startDate, endDate);
+
     	if(playList.size() == 0 ) {
     		playList.add(show);
     		return;
     	}
+
     	boolean isDateAvailable = true;
+
     	for(int i =0; i < playList.size(); i++) {
     		Show currentPlay = playList.get(i);
     		Date currentPlayStartDate = currentPlay.getPlayStartDate();
@@ -193,31 +191,31 @@ public class Theater implements Serializable {
     public void storeData() {
 
     	try {
-    		Files.deleteIfExists(Paths.get(home+fileSeperator+theaterDirectory+fileSeperator+"theaterNameCapacity.txt"));
+    		Files.deleteIfExists(Paths.get(homeDirectory + fileSeparator +theaterDirectory+ fileSeparator +"theaterNameCapacity.txt"));
     	} catch (Exception ex) {
     		System.out.println("Cleaned directory");
     	}
     	
     	try {
-    		Files.deleteIfExists(Paths.get(home+fileSeperator+theaterDirectory+fileSeperator+"customerList.txt"));
+    		Files.deleteIfExists(Paths.get(homeDirectory + fileSeparator +theaterDirectory+ fileSeparator +"customerList.txt"));
     	} catch (Exception ex) {
     		System.out.println("Cleaned directory");
     	}
     	
     	try {
-    		Files.delete(Paths.get(home+fileSeperator+theaterDirectory+fileSeperator+"clientList.txt"));
+    		Files.delete(Paths.get(homeDirectory + fileSeparator +theaterDirectory+ fileSeparator +"clientList.txt"));
     	} catch (Exception ex) {
     		System.out.println("Cleaned directory");
     	}
     	
     	try {
-    		Files.delete(Paths.get(home+fileSeperator+theaterDirectory+fileSeperator+"shows.txt"));
+    		Files.delete(Paths.get(homeDirectory + fileSeparator +theaterDirectory+ fileSeparator +"shows.txt"));
     	} catch (Exception ex) {
     		System.out.println("Cleaned directory");
     	}
     	
     	try {
-    		Files.delete(Paths.get(home+fileSeperator+theaterDirectory));
+    		Files.delete(Paths.get(homeDirectory + fileSeparator +theaterDirectory));
     	} catch (Exception ex) {
     		System.out.println("Cleaned directory");
     	}
@@ -225,15 +223,15 @@ public class Theater implements Serializable {
     	
     	try {
     		
-    		Files.createDirectory(Paths.get(home+fileSeperator+theaterDirectory));
+    		Files.createDirectory(Paths.get(homeDirectory + fileSeparator +theaterDirectory));
     		
-    		Path theaterCapacityPath = Files.createFile(Paths.get(home+fileSeperator+theaterDirectory+fileSeperator+"theaterNameCapacity.txt"));
+    		Path theaterCapacityPath = Files.createFile(Paths.get(homeDirectory + fileSeparator +theaterDirectory+ fileSeparator +"theaterNameCapacity.txt"));
     		StringBuilder theaterCapacityBuilder = new StringBuilder();
 
     		theaterCapacityBuilder.append(theaterName).append("|").append(capacity);
     		Files.write(theaterCapacityPath, theaterCapacityBuilder.toString().getBytes());
 
-    		Path customerListPath = Files.createFile(Paths.get(home+fileSeperator+theaterDirectory+fileSeperator+"customerList.txt"));
+    		Path customerListPath = Files.createFile(Paths.get(homeDirectory + fileSeparator +theaterDirectory+ fileSeparator +"customerList.txt"));
     		StringBuilder customerListBuilder = new StringBuilder();
     		for (Customer customer : customerList) {
     			customerListBuilder
@@ -253,7 +251,7 @@ public class Theater implements Serializable {
     		Files.write(customerListPath, customerListBuilder.toString().getBytes());
     		
     		
-    		Path clientListPath = Files.createFile(Paths.get(home+fileSeperator+theaterDirectory+fileSeperator+"clientList.txt"));
+    		Path clientListPath = Files.createFile(Paths.get(homeDirectory + fileSeparator +theaterDirectory+ fileSeparator +"clientList.txt"));
     		
     		StringBuilder clientListBuilder = new StringBuilder();
     		for (Client client : clientList) {
@@ -272,7 +270,7 @@ public class Theater implements Serializable {
     		Files.write(clientListPath, clientListBuilder.toString().getBytes());
     		
     		
-    		Path showPath = Files.createFile(Paths.get(home+fileSeperator+theaterDirectory+fileSeperator+"shows.txt"));
+    		Path showPath = Files.createFile(Paths.get(homeDirectory + fileSeparator +theaterDirectory+ fileSeparator +"shows.txt"));
     		StringBuilder showListBuilder = new StringBuilder();
     		for (Show show : playList) {
     			showListBuilder
@@ -286,7 +284,7 @@ public class Theater implements Serializable {
     		}
     		Files.write(showPath, showListBuilder.toString().getBytes());
     	} catch (Exception ex) {
-    		System.out.println("Unable to create one or more files in " + home+fileSeperator+theaterDirectory);
+    		System.out.println("Unable to create one or more files in " + homeDirectory + fileSeparator +theaterDirectory);
     	}
     }
     
@@ -302,7 +300,7 @@ public class Theater implements Serializable {
     	Theater theater = null;
 
 		try {
-			theaterCapacityContent = Files.readAllLines(Paths.get(home+fileSeperator+theaterDirectory+fileSeperator+"theaterNameCapacity.txt"),Charset.defaultCharset());
+			theaterCapacityContent = Files.readAllLines(Paths.get(homeDirectory + fileSeparator +theaterDirectory+ fileSeparator +"theaterNameCapacity.txt"),Charset.defaultCharset());
 			if(theaterCapacityContent != null && theaterCapacityContent.size() > 0) {
 				String[] line = theaterCapacityContent.get(0).split("\\|");
 				theater = new Theater(line[0], Integer.parseInt(line[1]));
@@ -312,7 +310,7 @@ public class Theater implements Serializable {
 		}
 		
 		try {
-			clientListContent = Files.readAllLines(Paths.get(home+fileSeperator+theaterDirectory+fileSeperator+"clientList.txt"),Charset.defaultCharset());
+			clientListContent = Files.readAllLines(Paths.get(homeDirectory + fileSeparator +theaterDirectory+ fileSeparator +"clientList.txt"),Charset.defaultCharset());
 			if(clientListContent != null && clientListContent.size() > 0) {
 				for(String line : clientListContent) {
 					String [] content = line.split("\\|");
@@ -325,7 +323,7 @@ public class Theater implements Serializable {
 		}
 		
 		try {
-			customerListContent = Files.readAllLines(Paths.get(home+fileSeperator+theaterDirectory+fileSeperator+"customerList.txt"),Charset.defaultCharset());
+			customerListContent = Files.readAllLines(Paths.get(homeDirectory + fileSeparator +theaterDirectory+ fileSeparator +"customerList.txt"),Charset.defaultCharset());
 			if(customerListContent != null && customerListContent.size() > 0) {
 				for(String line : customerListContent) {
 					String [] content = line.split("\\|");
@@ -343,7 +341,7 @@ public class Theater implements Serializable {
 		}
 		
 		try {
-			showListContent = Files.readAllLines(Paths.get(home+fileSeperator+theaterDirectory+fileSeperator+"shows.txt"),Charset.defaultCharset());
+			showListContent = Files.readAllLines(Paths.get(homeDirectory + fileSeparator +theaterDirectory+ fileSeparator +"shows.txt"),Charset.defaultCharset());
 			if(showListContent != null && showListContent.size() > 0) {
 				for(String line : showListContent) {
 					String [] content = line.split("\\|");
