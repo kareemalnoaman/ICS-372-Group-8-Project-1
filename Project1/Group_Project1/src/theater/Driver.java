@@ -64,22 +64,16 @@ public class Driver {
 				theater.listClients();
 			} else if(ans == 4){
 
-				String customerName;
-				String customerAddress;
-				String customerPhone;
-				int creditCardNumber;
-				String expiryDate;
-
 				System.out.println("\nEnter customer name:");
-				customerName = clientAns.nextLine();
+				String customerName = clientAns.nextLine();
 				System.out.println("\nEnter customer address:");
-				customerAddress = clientAns.nextLine();
+				String customerAddress = clientAns.nextLine();
 				System.out.println("\nEnter customer phone:");
-				customerPhone = clientAns.nextLine();
+				String customerPhone = clientAns.nextLine();
 				System.out.println("\nEnter customer Credit Card number:");
-				creditCardNumber = clientAns.nextInt();
+				int creditCardNumber = clientAns.nextInt();
 				System.out.println("\nEnter customer Credit Card expiry date in the form MM/YY:");
-				expiryDate = clientAns.nextLine();
+				String expiryDate = clientAns.nextLine();
 
 				theater.addCustomer(customerName, customerAddress, customerPhone, creditCardNumber, expiryDate);
 			} else if(ans == 5) {
@@ -145,7 +139,7 @@ public class Driver {
 
 				theater.loadFromDisk();
 			} else if (ans == 13){
-				
+
 				showAllCommands();
 			}
 
@@ -154,7 +148,7 @@ public class Driver {
 	}//end main
 
 	public static void showAllCommands(){
-		System.out.println("Welcome to the Theater");
+		System.out.println("\nWelcome to the Theater");
 		System.out.println(" 0: Exit");
 		System.out.println(" 1: Add a Client");
 		System.out.println(" 2: Remove a Client");

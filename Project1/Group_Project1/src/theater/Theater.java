@@ -58,7 +58,6 @@ public class Theater implements Serializable {
     public void listClients(){//print all clients
         for(int i = 0; i < clientList.size(); i++){
             System.out.println(clientList.get(i));
-            System.out.println("\n");
         }
     }
 
