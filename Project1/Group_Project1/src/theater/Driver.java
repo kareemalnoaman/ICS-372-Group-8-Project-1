@@ -138,7 +138,7 @@ public class Driver {
 			} else if(ans == 11){
 				theater.storeData();
 			} else if(ans == 12){
-				theater.loadFromDisk();
+				theater = theater.loadFromDisk();
 			} else if (ans == 13){
 				showAllCommands();
 			} else{
