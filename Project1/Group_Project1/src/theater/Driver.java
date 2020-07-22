@@ -143,6 +143,8 @@ public class Driver {
 			} else if (ans == 13){
 
 				showAllCommands();
+			} else{
+				System.out.println("Input must be between 1-13, try again.");
 			}
 
 		} while (ans != 0);
