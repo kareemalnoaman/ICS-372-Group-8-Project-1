@@ -48,20 +48,6 @@ public class Show {
 		this.playEndDate = playEndDate;
 	}
 
-	public boolean playExists(){
-
-	 	Date todayDate = new Date();
-
-	 	if(playStartDate ==  null)
-	 		return false;
-
-	 	if(todayDate.before(playStartDate) || todayDate.after(playEndDate))
-	 		return false;
-	 	else
-	 		return true;
-
-	 }
-
 	@Override
 	public String toString() {
 		return "\n Client Id = \t" + clientId + ", Show Name =\t" + playName + ", Show StartDate =\t" + playStartDate

@@ -354,6 +354,6 @@ public class Theater implements Serializable {
 		}
 		
 		return theater;
-    }
+    }//end loadFromDisk
     
-}
+}//end Theater
