@@ -1,8 +1,7 @@
 package theater;
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Customer implements Serializable {
+public class Customer {
 
     String customerName;
     String customerAddress;

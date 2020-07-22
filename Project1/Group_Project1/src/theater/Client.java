@@ -1,8 +1,6 @@
 package theater;
 
-import java.io.Serializable;
-
-public class Client implements Serializable {
+public class Client {
 
     private String clientName;
     private String clientAddress;

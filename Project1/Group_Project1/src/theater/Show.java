@@ -1,9 +1,8 @@
 package theater;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Show implements Serializable {
+public class Show {
 	
 	private int clientId;
 	private String playName;
