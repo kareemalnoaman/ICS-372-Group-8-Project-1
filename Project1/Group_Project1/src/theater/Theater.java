@@ -248,7 +248,7 @@ public class Theater implements Serializable {
     			customerListBuilder
     			.append(customer.customerID).append("|")
     			.append(customer.customerAddress).append("|")
-    			.append(customer.customerName)
+    			.append(customer.customerName).append("|")
     			.append(customer.customerPhone);
     			
     			customerListBuilder.append(":");
@@ -337,9 +337,9 @@ public class Theater implements Serializable {
 			customerListContent = Files.readAllLines(Paths.get(homeDirectory + fileSeparator +theaterDirectory+ fileSeparator +"customerList.txt"),Charset.defaultCharset());
 			if(customerListContent != null && customerListContent.size() > 0) {
 				for(String line : customerListContent) {
-					String [] content = line.split("\\|");
-					Customer customer = new Customer(content[2], content[1], content[3], Integer.parseInt(content[0]));
 					String[] cLine = line.split(":");
+					String [] content = cLine[0].split("\\|");
+					Customer customer = new Customer(content[2], content[1], content[3], Integer.parseInt(content[0]));
 					if (cLine != null && cLine.length > 1) {
 						String[] creditCardLine = cLine[1].split("\\|");
 						customer.addCreditCard(creditCardLine[0], creditCardLine[1]);

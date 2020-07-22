@@ -22,7 +22,6 @@ public class Driver {
 		showAllCommands();
 
 		do {
-
 			System.out.println("\nEnter selection:");
 
 			try {
