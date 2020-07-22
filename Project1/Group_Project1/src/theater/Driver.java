@@ -35,9 +35,7 @@ public class Driver {
 			if(ans == 0) {
 				theater.storeData();
 				return;
-			}
-
-			if(ans == 1) {
+			} else if(ans == 1) {
 
 				String clientName;
 				String clientAddress;
@@ -51,6 +49,7 @@ public class Driver {
 				clientPhone = clientAns.nextLine();
 
 				theater.addClient(clientName, clientAddress, clientPhone);
+
 			} else if(ans == 2) {
 
 				int clientID;
@@ -59,8 +58,8 @@ public class Driver {
 				clientID = clientAns.nextInt();
 
 				theater.removeClient(clientID);
-			} else if(ans == 3){
 
+			} else if(ans == 3){
 				theater.listClients();
 			} else if(ans == 4){
 
@@ -77,6 +76,7 @@ public class Driver {
 				String expiryDate = clientAns.nextLine();
 
 				theater.addCustomer(customerName, customerAddress, customerPhone, creditCardNumber, expiryDate);
+
 			} else if(ans == 5) {
 
 				int customerID;
@@ -85,6 +85,7 @@ public class Driver {
 				customerID = clientAns.nextInt();
 
 				theater.removeCustomer(customerID);
+
 			} else if(ans == 6){
 
 				int customerID;
@@ -107,8 +108,8 @@ public class Driver {
 				System.out.println("\nEnter Credit Card number to be removed:");
 				creditCardNumber = clientAns.nextInt();
 				theater.removeCreditCard(creditCardNumber);
-			} else if(ans == 8){
 
+			} else if(ans == 8){
 				theater.listCustomers();
 			} else if(ans == 9){
 
@@ -131,17 +132,14 @@ public class Driver {
 				Date endDate = df.parse(end);
 
 				theater.addShow(showName, clientID, startDate, endDate);
-			} else if(ans == 10){
 
+			} else if(ans == 10){
 				theater.listAllShows();
 			} else if(ans == 11){
-
 				theater.storeData();
 			} else if(ans == 12){
-
 				theater.loadFromDisk();
 			} else if (ans == 13){
-
 				showAllCommands();
 			} else{
 				System.out.println("Input must be between 0-13, try again.");
