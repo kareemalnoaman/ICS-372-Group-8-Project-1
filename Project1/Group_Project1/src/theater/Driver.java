@@ -51,19 +51,19 @@ public class Driver {
 				clientPhone = clientAns.nextLine();
 
 				theater.addClient(clientName, clientAddress, clientPhone);
-			}
-			else if(ans == 2) {
+			} else if(ans == 2) {
+
 				int clientID;
 
 				System.out.println("\nEnter ID of client to be removed:");
 				clientID = clientAns.nextInt();
 
 				theater.removeClient(clientID);
-			}
-			else if(ans == 3){
+			} else if(ans == 3){
+
 				theater.listClients();
-			}
-			else if(ans == 4){
+			} else if(ans == 4){
+
 				String customerName;
 				String customerAddress;
 				String customerPhone;
@@ -82,16 +82,16 @@ public class Driver {
 				expiryDate = clientAns.nextLine();
 
 				theater.addCustomer(customerName, customerAddress, customerPhone, creditCardNumber, expiryDate);
-			}
-			else if(ans == 5) {
+			} else if(ans == 5) {
+
 				int customerID;
 
 				System.out.println("\nEnter ID of customer to be removed:");
 				customerID = clientAns.nextInt();
 
 				theater.removeCustomer(customerID);
-			}
-			else if(ans == 6){
+			} else if(ans == 6){
+
 				int customerID;
 				int creditCardNumber;
 				String expiryDate;
@@ -105,17 +105,17 @@ public class Driver {
 
 				theater.addCustomerCreditCard(customerID, creditCardNumber, expiryDate);
 
-			}
-			else if(ans == 7){
+			} else if(ans == 7){
+
 				int creditCardNumber;
 				System.out.println("\nEnter Credit Card number to be removed:");
 				creditCardNumber = clientAns.nextInt();
 				theater.removeCreditCard(creditCardNumber);
-			}
-			else if(ans == 8){
+			} else if(ans == 8){
+
 				theater.listCustomers();
-			}
-			else if(ans == 9){
+			} else if(ans == 9){
+
 				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 				String showName;
 				int clientID;
@@ -135,17 +135,17 @@ public class Driver {
 				Date endDate = df.parse(end);
 
 				theater.addShow(showName, clientID, startDate, endDate);
-			}
-			else if(ans == 10){
+			} else if(ans == 10){
+
 				theater.listAllShows();
-			}
-			else if(ans == 11){
+			} else if(ans == 11){
+
 				theater.storeData();
-			}
-			else if(ans == 12){
+			} else if(ans == 12){
+
 				theater.loadFromDisk();
-			}
-			else if (ans == 13){
+			} else if (ans == 13){
+				
 				showAllCommands();
 			}
 
