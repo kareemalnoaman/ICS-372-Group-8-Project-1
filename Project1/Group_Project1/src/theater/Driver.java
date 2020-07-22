@@ -72,6 +72,7 @@ public class Driver {
 				String customerPhone = clientAns.nextLine();
 				System.out.println("\nEnter customer Credit Card number:");
 				int creditCardNumber = clientAns.nextInt();
+				clientAns.nextLine();//clear input buffer
 				System.out.println("\nEnter customer Credit Card expiry date in the form MM/YY:");
 				String expiryDate = clientAns.nextLine();
 
@@ -94,6 +95,7 @@ public class Driver {
 				customerID = clientAns.nextInt();
 				System.out.println("\nEnter customer's Credit Card number:");
 				creditCardNumber = clientAns.nextInt();
+				clientAns.nextLine();//clear input buffer
 				System.out.println("\nEnter Credit Card Number expiry date in the form MM/YY:");
 				expiryDate = clientAns.nextLine();
 
