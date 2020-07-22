@@ -45,10 +45,22 @@ public class Theater implements Serializable {
         clientList.add(client);
     }
 
+	//loop that goes through all clients and
+	// if it finds the ID will remove the corresponding client after making sure a play doesn't exist
     public void removeClient(int clientID){
-        for(int i = 0; i < clientList.size(); i++){//loop that goes through all clients and
-            // if it finds the ID will remove the corresponding client after making sure a play doesnt exist
+        for(int i = 0; i < clientList.size(); i++){
             if(clientID == clientList.get(i).getClientID()){
+            	for(int j = 0; j < playList.size(); j++){
+            		if(clientID == playList.get(j).getClientId()){
+            			Date todayDate = new Date();
+            			if(!todayDate.before(playList.get(j).getPlayStartDate())){
+            				System.out.println("Cannot remove Client; has show scheduled for future date.");
+            				return;
+						}else{
+            				break;
+						}
+					}
+				}
              	clientList.remove(i);
                 return;
             }//end if
@@ -180,7 +192,7 @@ public class Theater implements Serializable {
     }
     
     public void listAllShows() {
-		System.out.println("All shows avaliable:");
+		System.out.println("All shows available:");
 
     	for(int i=0; i < playList.size(); i++) {
     		System.out.println( playList.get(i));
@@ -285,7 +297,7 @@ public class Theater implements Serializable {
     	} catch (Exception ex) {
     		System.out.println("Unable to create one or more files in " + homeDirectory + fileSeparator +theaterDirectory);
     	}
-    }
+    }//end storeData
     
     /**
      * 

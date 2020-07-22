@@ -123,6 +123,7 @@ public class Driver {
 				showName = clientAns.nextLine();
 				System.out.println("\nEnter ID of client:");
 				clientID = clientAns.nextInt();
+				clientAns.nextLine();//clear input buffer
 				System.out.println("\nEnter show start date in the format \"yyyy-MM-dd\":");
 				start = clientAns.nextLine();
 				System.out.println("\nEnter show end date in the format \"yyyy-MM-dd\":");
