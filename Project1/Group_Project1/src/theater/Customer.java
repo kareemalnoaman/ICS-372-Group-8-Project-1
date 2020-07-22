@@ -26,22 +26,17 @@ public class Customer implements Serializable {
     @Override
     public String toString() {
 
-        //String creditCardList = "";
+        String creditCardList = "";
 
-        //for(int i = 0; i < this.creditCardList.size(); i++){
-        //    creditCardList = creditCardList + this.creditCardList.get(i);
-        //}
-
-        //for(int i = 0; i < this.creditCardList.size(); i++){
-        //    creditCardList = creditCardList + this.creditCardList.get(i).creditCardNumber + ", ";
-        //    creditCardList = creditCardList + this.creditCardList.get(i).expiryDate + " ";
-        //}
+        for(int i = 0; i < this.creditCardList.size(); i++){
+            creditCardList = creditCardList + this.creditCardList.get(i);
+        }
 
         return "Customer{" +
                 "customerName='" + customerName + '\'' +
                 ", customerAddress='" + customerAddress + '\'' +
                 ", customerPhone=" + customerPhone +
-                ", creditCardList=" + creditCardList.get(0) +
+                ", creditCardList=" + creditCardList +
                 ", customerID=" + customerID +
                 '}';
     }
