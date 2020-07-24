@@ -14,5 +14,5 @@ public class Ticket {
         this.serialNum = serialNum;
         this.showDate = showDate;
     }
-    
+
 }

@@ -106,6 +106,8 @@ public class Driver {
 				String start = clientAns.nextLine();
 				System.out.println("\nEnter show end date in the format \"yyyy-MM-dd\":");
 				String end = clientAns.nextLine();
+				System.out.println("\nEnter regular ticket price:");
+				String price = clientAns.nextLine();
 
 				Date startDate = df.parse(start);
 				Date endDate = df.parse(end);
@@ -119,8 +121,19 @@ public class Driver {
 			} else if(ans == 12){
 				theater = theater.loadFromDisk();
 			} else if (ans == 13){
+
+			} else if (ans == 14){
+
+			} else if (ans == 15){
+
+			} else if (ans == 16){
+
+			} else if (ans == 17){
+
+			} else if (ans == 18){
 				showAllCommands();
-			} else{
+			}
+			else{
 				System.out.println("Input must be between 0-13, try again.");
 			}
 
