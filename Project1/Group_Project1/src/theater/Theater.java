@@ -456,7 +456,6 @@ public class Theater implements Serializable {
     		for(int j = 0; j < customerList.get(i).ticketList.size(); j++){
     			showDate = customerList.get(i).ticketList.get(j).getShowDate();
     			if(date.compareTo(showDate) == 0){
-					System.out.println("\n");
 					System.out.println(customerList.get(i).ticketList.get(j));
 				}
 			}
