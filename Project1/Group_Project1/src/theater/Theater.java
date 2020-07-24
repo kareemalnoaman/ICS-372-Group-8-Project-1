@@ -436,7 +436,24 @@ public class Theater implements Serializable {
 		}
 
 		System.out.println("Error: didn't find Client associated with ID;");
-		
+
 	}
+
+	public void printTicketsForDate(Date date){
+
+    	Date showDate;
+
+		System.out.println("Tickets for date" + date + ":");
+    	for(int i = 0; i < customerList.size(); i++){
+    		for(int j = 0; j < customerList.get(i).ticketList.size(); j++){
+    			showDate = customerList.get(i).ticketList.get(j).getShowDate();
+    			if(date.compareTo(showDate) == 0){
+					System.out.println("\n");
+					System.out.println(customerList.get(i).ticketList.get(j));
+				}
+			}
+		}
+
+	}//end printTickets
 
 }//end Theater

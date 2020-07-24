@@ -26,20 +26,24 @@ public class Customer {
     public String toString() {
 
         String creditCardList = "";
+        String ticketList = "";
 
         for(int i = 0; i < this.creditCardList.size(); i++){
             creditCardList = creditCardList + this.creditCardList.get(i);
+        }
+        for(int i = 0; i < this.ticketList.size(); i++){
+            ticketList = ticketList + this.ticketList.get(i);
         }
 
         return "Customer{" +
                 "customerName='" + customerName + '\'' +
                 ", customerAddress='" + customerAddress + '\'' +
-                ", customerPhone=" + customerPhone +
-                ", creditCardList=" + creditCardList +
+                ", customerPhone='" + customerPhone + '\'' +
                 ", customerID=" + customerID +
+                ", creditCardList=" + creditCardList +
+                ", ticketList=" + ticketList +
                 '}';
     }
-
 }//end customer
 
 class CreditCard {

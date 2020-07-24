@@ -128,22 +128,12 @@ public class Driver {
 				userAns.nextLine();//clear input buffer
 				System.out.println("Enter your Credit Card number:");
 				String creditCardNumber = userAns.nextLine();
-
-			} else if (ans == 14){
-
-				System.out.println("How many tickets will you buy:");
-				int quantity = userAns.nextInt();
-				System.out.println("What is your customer ID:");
-				int customerID = userAns.nextInt();
-				userAns.nextLine();//clear input buffer
-				System.out.println("Enter your Credit Card number:");
-				String creditCardNumber = userAns.nextLine();
 				System.out.println("\nEnter show start date in the format \"yyyy-MM-dd\":");
 				String start = userAns.nextLine();
 
 				Date startDate = df.parse(start);
 
-
+			} else if (ans == 14){
 
 			} else if (ans == 15){
 
@@ -156,17 +146,24 @@ public class Driver {
 				theater.printClientBalance(clientID);
 				System.out.println("Enter amount to pay Client:");
 				double payment = userAns.nextDouble();
-				userAns.nextLine();//clear input buffer
-
-
+				theater.payClient(clientID, payment);
+				System.out.println("The Client's balance is now:");
+				theater.printClientBalance(clientID);
 
 			} else if (ans == 17){
+
+				System.out.println("\nEnter show start date in the format \"yyyy-MM-dd\":");
+				String start = userAns.nextLine();
+
+				Date startDate = df.parse(start);
+
+				theater.printTicketsForDate(startDate);
 
 			} else if (ans == 18){
 				showAllCommands();
 			}
 			else{
-				System.out.println("Input must be between 0-13, try again.");
+				System.out.println("Input must be between 0-18, try again.");
 			}
 
 		} while (ans != 0);
@@ -188,7 +185,12 @@ public class Driver {
 		System.out.println("10: List all Shows");
 		System.out.println("11: Store Data");
 		System.out.println("12: Retrieve Data");
-		System.out.println("13: Help");
+		System.out.println("13: Sell regular tickets");
+		System.out.println("14: Sell advance tickets");
+		System.out.println("15: Sell student advance tickets");
+		System.out.println("16: Pay Client");
+		System.out.println("17: Print all tickets for a certain day");
+		System.out.println("18: Help");
 	}//end show all commands
 
 }//end all

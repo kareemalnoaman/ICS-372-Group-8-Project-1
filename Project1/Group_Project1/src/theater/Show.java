@@ -50,12 +50,6 @@ public class Show {
 		this.playEndDate = playEndDate;
 	}
 
-	@Override
-	public String toString() {
-		return "\n Client Id = \t" + clientID + ", Show Name =\t" + playName + ", Show StartDate =\t" + playStartDate
-				+ ", Show End Date = \t" + playEndDate;
-	}
-
 	public double getTicketPrice() {
 		return ticketPrice;
 	}
@@ -63,4 +57,12 @@ public class Show {
 	public void setTicketPrice(double ticketPrice) {
 		this.ticketPrice = ticketPrice;
 	}
+
+	@Override
+	public String toString() {
+		return "\n Client Id = \t" + clientID + ", Show Name =\t" + playName + ", Show StartDate =\t" + playStartDate
+				+ ", Show End Date = \t" + playEndDate;
+	}
+
+
 }
