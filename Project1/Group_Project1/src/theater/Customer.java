@@ -8,6 +8,7 @@ public class Customer {
     String customerPhone;
     int customerID;
     ArrayList<CreditCard> creditCardList;
+    ArrayList<Ticket> ticketList;
 
     public Customer(String customerName, String customerAddress, String customerPhone, int customerID) {
         this.customerName = customerName;

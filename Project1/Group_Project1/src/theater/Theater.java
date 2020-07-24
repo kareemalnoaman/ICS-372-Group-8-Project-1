@@ -26,6 +26,7 @@ public class Theater implements Serializable {
 	int numOfClients;//holds total number of clients ever had, using this number to ensure ID is never repeated
 	                 //just using the size of the array wouldnt be accurate as clients can be removed and added and could have repeating numbers
 	int numOfCustomers;//same as above except for customers
+	int numOfTickets;//same as above except for tickets
 
     public Theater(String theaterName, int capacity) {//Theater constructor
         this.theaterName = theaterName;
@@ -158,7 +159,7 @@ public class Theater implements Serializable {
     		return;
     	}
     	
-    	Show show = new Show(playName, clientId, startDate, endDate);
+    	Show show = new Show(playName, clientId, startDate, endDate, price);
 
     	if(playList.size() == 0 ) {
     		playList.add(show);
@@ -356,7 +357,7 @@ public class Theater implements Serializable {
 			if(showListContent != null && showListContent.size() > 0) {
 				for(String line : showListContent) {
 					String [] content = line.split("\\|");
-					Show show = new Show(content[0], Integer.parseInt(content[1]), df.parse(content[2]), df.parse(content[3]));
+					Show show = new Show(content[0], Integer.parseInt(content[1]), df.parse(content[2]), df.parse(content[3]), 0);
 					theater.playList.add(show);
 				}
 			}
@@ -366,5 +367,50 @@ public class Theater implements Serializable {
 		
 		return theater;
     }//end loadFromDisk
-    
+
+	public void sellTicket(int customerID, Date startDate, int quantity){
+
+    	double price = 0;
+    	int clientID = 0;
+    	boolean found = false;
+
+    	for(int i = 0; i < playList.size(); i++){
+    		if(playList.get(i).getPlayStartDate() == startDate){
+    			price = playList.get(i).getTicketPrice();
+    			clientID = playList.get(i).getClientID();
+    			found = true;
+    			break;
+			}
+		}
+
+    	if(!found){
+			System.out.println("Error: Couldn't find the show;");
+			return;
+    	}
+
+    	found = false;
+
+    	for(int i = 0; i < customerList.size(); i++){
+    		if(customerID == customerList.get(i).customerID){
+				for(int j = 0; j < quantity; j++) {
+					customerList.get(i).ticketList.add(new Ticket(price, startDate, ++numOfTickets));
+				}
+    			found = true;
+    			break;
+			}
+		}
+
+		if(!found){
+			System.out.println("Error: Couldn't find the customer;");
+			return;
+		}
+
+		for(int i = 0; i < clientList.size(); i++){
+			if(clientID == clientList.get(i).getClientID()){
+				clientList.get(i).addBalanceDue(price * quantity);
+			}
+		}
+
+	}
+
 }//end Theater

@@ -56,4 +56,11 @@ public class Show {
 				+ ", Show End Date = \t" + playEndDate;
 	}
 
+	public double getTicketPrice() {
+		return ticketPrice;
+	}
+
+	public void setTicketPrice(double ticketPrice) {
+		this.ticketPrice = ticketPrice;
+	}
 }

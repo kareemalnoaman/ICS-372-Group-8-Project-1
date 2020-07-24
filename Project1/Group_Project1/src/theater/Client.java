@@ -57,6 +57,12 @@ public class Client {
 		this.balanceDue = balanceDue;
 	}
 
+	public void addBalanceDue(double ticketRevenue){
+    	this.balanceDue += ticketRevenue;
+	}
+
+	
+
 	@Override
     public String toString() {
         return "Client{" +
