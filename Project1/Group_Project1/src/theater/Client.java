@@ -61,7 +61,17 @@ public class Client {
     	this.balanceDue += ticketRevenue;
 	}
 
-	
+	public void payClient(double payment){
+
+    	if(balanceDue > payment){
+			System.out.println("Error: payment is more than the balance due;");
+		}else{
+    		balanceDue -= payment;
+		}
+
+	}
+
+
 
 	@Override
     public String toString() {

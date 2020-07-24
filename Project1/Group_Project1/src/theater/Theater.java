@@ -411,6 +411,32 @@ public class Theater implements Serializable {
 			}
 		}
 
+	}//end sell ticket
+
+	public void printClientBalance(int clientID){
+
+    	for(int i = 0; i < clientList.size(); i++){
+    		if(clientID == clientList.get(i).getClientID()){
+    			System.out.println(clientList.get(i).getBalanceDue());
+    			return;
+			}
+		}
+
+    	System.out.println("Error: didn't find Client associated with ID;");
+
+	}//end printClientBalance
+
+	public void payClient(int clientID, double payment){
+
+		for(int i = 0; i < clientList.size(); i++){
+			if(clientID == clientList.get(i).getClientID()){
+				clientList.get(i).payClient(payment);
+				return;
+			}
+		}
+
+		System.out.println("Error: didn't find Client associated with ID;");
+		
 	}
 
 }//end Theater
