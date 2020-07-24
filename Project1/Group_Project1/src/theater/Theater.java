@@ -368,7 +368,7 @@ public class Theater implements Serializable {
 		return theater;
     }//end loadFromDisk
 
-	public void sellTicket(int customerID, Date startDate, int quantity){
+	public void sellTicket(int customerID, Date startDate, int quantity, int ticketTypeIdentifier){
 
     	double price = 0;
     	int clientID = 0;
@@ -393,7 +393,16 @@ public class Theater implements Serializable {
     	for(int i = 0; i < customerList.size(); i++){
     		if(customerID == customerList.get(i).customerID){
 				for(int j = 0; j < quantity; j++) {
-					customerList.get(i).ticketList.add(new Ticket(price, startDate, ++numOfTickets));
+					if(ticketTypeIdentifier == 13) {
+						customerList.get(i).ticketList.add(new Ticket(price, startDate, ++numOfTickets));
+					}else if (ticketTypeIdentifier == 14){
+						customerList.get(i).ticketList.add(new AdvanceTicket(price, startDate, ++numOfTickets));
+					}else if (ticketTypeIdentifier == 15){
+						customerList.get(i).ticketList.add(new StudentAdvanceTicket(price, startDate, ++numOfTickets));
+					}else {
+						System.out.println("Error: Ticket type unspecified;");
+						return;
+					}
 				}
     			found = true;
     			break;
@@ -407,7 +416,7 @@ public class Theater implements Serializable {
 
 		for(int i = 0; i < clientList.size(); i++){
 			if(clientID == clientList.get(i).getClientID()){
-				clientList.get(i).addBalanceDue(price * quantity);
+				clientList.get(i).addBalanceDue((price * quantity) / 2);
 			}
 		}
 

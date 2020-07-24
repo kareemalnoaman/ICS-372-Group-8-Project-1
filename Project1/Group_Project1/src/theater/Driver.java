@@ -119,7 +119,7 @@ public class Driver {
 				theater.storeData();
 			} else if(ans == 12){
 				theater = theater.loadFromDisk();
-			} else if (ans == 13){
+			} else if (ans > 12 && ans < 16){
 
 				System.out.println("How many tickets will you buy:");
 				int quantity = userAns.nextInt();
@@ -133,9 +133,7 @@ public class Driver {
 
 				Date startDate = df.parse(start);
 
-			} else if (ans == 14){
-
-			} else if (ans == 15){
+				theater.sellTicket(customerID, startDate, quantity, ans);
 
 			} else if (ans == 16){
 
