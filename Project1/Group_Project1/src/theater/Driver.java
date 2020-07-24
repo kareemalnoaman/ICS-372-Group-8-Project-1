@@ -33,25 +33,19 @@ public class Driver {
 				return;
 			} else if(ans == 1) {
 
-				String clientName;
-				String clientAddress;
-				String clientPhone;
-
 				System.out.println("\nEnter client name:");
-				clientName = clientAns.nextLine();
+				String clientName = clientAns.nextLine();
 				System.out.println("\nEnter client address:");
-				clientAddress = clientAns.nextLine();
+				String clientAddress = clientAns.nextLine();
 				System.out.println("\nEnter client phone:");
-				clientPhone = clientAns.nextLine();
+				String clientPhone = clientAns.nextLine();
 
 				theater.addClient(clientName, clientAddress, clientPhone);
 
 			} else if(ans == 2) {
 
-				int clientID;
-
 				System.out.println("\nEnter ID of client to be removed:");
-				clientID = clientAns.nextInt();
+				int clientID = clientAns.nextInt();
 
 				theater.removeClient(clientID);
 
@@ -74,34 +68,27 @@ public class Driver {
 
 			} else if(ans == 5) {
 
-				int customerID;
-
 				System.out.println("\nEnter ID of customer to be removed:");
-				customerID = clientAns.nextInt();
+				int customerID = clientAns.nextInt();
 
 				theater.removeCustomer(customerID);
 
 			} else if(ans == 6){
 
-				int customerID;
-				String creditCardNumber;
-				String expiryDate;
-
 				System.out.println("\nEnter ID of customer:");
-				customerID = clientAns.nextInt();
+				int customerID = clientAns.nextInt();
 				clientAns.nextLine();//clear input buffer
 				System.out.println("\nEnter customer's Credit Card number:");
-				creditCardNumber = clientAns.nextLine();
+				String creditCardNumber = clientAns.nextLine();
 				System.out.println("\nEnter Credit Card Number expiry date in the form MM/YY:");
-				expiryDate = clientAns.nextLine();
+				String expiryDate = clientAns.nextLine();
 
 				theater.addCustomerCreditCard(customerID, creditCardNumber, expiryDate);
 
 			} else if(ans == 7){
 
-				String creditCardNumber;
 				System.out.println("\nEnter Credit Card number to be removed:");
-				creditCardNumber = clientAns.nextLine();
+				String creditCardNumber = clientAns.nextLine();
 				theater.removeCreditCard(creditCardNumber);
 
 			} else if(ans == 8){
@@ -109,20 +96,16 @@ public class Driver {
 			} else if(ans == 9){
 
 				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-				String showName;
-				int clientID;
-				String start;
-				String end;
 
 				System.out.println("\nEnter name of the show:");
-				showName = clientAns.nextLine();
+				String showName = clientAns.nextLine();
 				System.out.println("\nEnter ID of client:");
-				clientID = clientAns.nextInt();
+				int clientID = clientAns.nextInt();
 				clientAns.nextLine();//clear input buffer
 				System.out.println("\nEnter show start date in the format \"yyyy-MM-dd\":");
-				start = clientAns.nextLine();
+				String start = clientAns.nextLine();
 				System.out.println("\nEnter show end date in the format \"yyyy-MM-dd\":");
-				end = clientAns.nextLine();
+				String end = clientAns.nextLine();
 
 				Date startDate = df.parse(start);
 				Date endDate = df.parse(end);
