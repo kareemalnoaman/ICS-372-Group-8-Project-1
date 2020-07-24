@@ -107,12 +107,12 @@ public class Driver {
 				System.out.println("\nEnter show end date in the format \"yyyy-MM-dd\":");
 				String end = clientAns.nextLine();
 				System.out.println("\nEnter regular ticket price:");
-				String price = clientAns.nextLine();
+				double price = clientAns.nextDouble();
 
 				Date startDate = df.parse(start);
 				Date endDate = df.parse(end);
 
-				theater.addShow(showName, clientID, startDate, endDate);
+				theater.addShow(showName, clientID, startDate, endDate, price);
 
 			} else if(ans == 10){
 				theater.listAllShows();
@@ -122,7 +122,23 @@ public class Driver {
 				theater = theater.loadFromDisk();
 			} else if (ans == 13){
 
+				System.out.println("How many tickets will you buy:");
+				int quantity = clientAns.nextInt();
+				System.out.println("What is your customer ID:");
+				int customerID = clientAns.nextInt();
+				clientAns.nextLine();//clear input buffer
+				System.out.println("Enter your Credit Card number:");
+				String creditCardNumber = clientAns.nextLine();
+
 			} else if (ans == 14){
+
+				System.out.println("How many tickets will you buy:");
+				int quantity = clientAns.nextInt();
+				System.out.println("What is your customer ID:");
+				int customerID = clientAns.nextInt();
+				clientAns.nextLine();//clear input buffer
+				System.out.println("Enter your Credit Card number:");
+				String creditCardNumber = clientAns.nextLine();
 
 			} else if (ans == 15){
 

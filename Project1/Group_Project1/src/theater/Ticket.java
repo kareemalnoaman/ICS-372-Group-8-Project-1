@@ -9,10 +9,12 @@ public class Ticket {
     private Date showDate;
 
 
-    public Ticket(double price, int serialNum, Date showDate) {
+    public Ticket(double price, Date showDate, int serialNum) {
         this.price = price;
-        this.serialNum = serialNum;
         this.showDate = showDate;
+        this.serialNum = serialNum;
     }
+
+
 
 }

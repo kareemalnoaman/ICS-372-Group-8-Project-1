@@ -133,7 +133,7 @@ public class Theater implements Serializable {
      * @param startDate-start date of show
      * @param endDate- end date of show
      */
-    public void addShow(String playName, int clientId, Date startDate, Date endDate) {
+    public void addShow(String playName, int clientId, Date startDate, Date endDate, double price) {
     	
     	//Check if the client exists. Is 0 a valid client id.
     	boolean isClientPresent = false;

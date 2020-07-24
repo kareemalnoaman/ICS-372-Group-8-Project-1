@@ -8,12 +8,14 @@ public class Show {
 	private String playName;
 	private Date playStartDate;
 	private Date playEndDate;
+	private double ticketPrice;
 	 
-	 public Show(String playName, int clientId, Date startDate, Date endDate) {
+	 public Show(String playName, int clientId, Date startDate, Date endDate, double ticketPrice) {
 		 this.playName = playName;
 		 this.clientID = clientId;
 		 playStartDate = startDate;
 	     playEndDate = endDate;
+	     this.ticketPrice = ticketPrice;
 	 }
 	 
 	public int getClientID() {
