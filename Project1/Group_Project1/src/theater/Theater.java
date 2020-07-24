@@ -16,10 +16,10 @@ public class Theater implements Serializable {
 
     String theaterName;
     int capacity;
-    ArrayList<Client> clientList = new ArrayList<Client>();//list of all currently registered clients
-    ArrayList<Customer> customerList = new ArrayList<Customer>();//list of all currently registered members
-    ArrayList<Show> playList = new ArrayList<Show>(); // list of all the shows
-    static String homeDirectory = System.getProperty("user.home"); // home directory
+    ArrayList<Client> clientList = new ArrayList<Client>();
+    ArrayList<Customer> customerList = new ArrayList<Customer>();
+    ArrayList<Show> playList = new ArrayList<Show>();
+    static String homeDirectory = System.getProperty("user.home");
     static String fileSeparator = File.separator;
     static String theaterDirectory = "theater";
     static DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -28,7 +28,7 @@ public class Theater implements Serializable {
 	int numOfCustomers;//same as above except for customers
 	int numOfTickets;//same as above except for tickets
 
-    public Theater(String theaterName, int capacity) {//Theater constructor
+    public Theater(String theaterName, int capacity) {
         this.theaterName = theaterName;
         this.capacity = capacity;
         this.numOfClients = 0;

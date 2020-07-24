@@ -20,7 +20,7 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "Ticket{" +
+        return getClass().getSimpleName() + "{" +
                 "price=" + price +
                 ", serialNum=" + serialNum +
                 ", showDate=" + showDate +
