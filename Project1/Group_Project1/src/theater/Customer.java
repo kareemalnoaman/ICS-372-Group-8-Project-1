@@ -18,7 +18,6 @@ public class Customer {
     }
 
     public void addCreditCard(String creditCardNumber, String expiryDate){
-        //CreditCard card = new CreditCard(creditCardNumber, expiryDate);
         creditCardList.add(new CreditCard(creditCardNumber, expiryDate));
     }
 
