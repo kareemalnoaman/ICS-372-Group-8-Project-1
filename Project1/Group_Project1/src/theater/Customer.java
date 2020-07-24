@@ -16,6 +16,7 @@ public class Customer {
         this.customerPhone = customerPhone;
         this.creditCardList = new ArrayList<CreditCard>();
         this.customerID = customerID;
+        this.ticketList = new ArrayList<Ticket>();
     }
 
     public void addCreditCard(String creditCardNumber, String expiryDate){
