@@ -24,7 +24,7 @@ public class Theater implements Serializable {
     static String theaterDirectory = "theater";
     static DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	int numOfClients;//holds total number of clients ever had, using this number to ensure ID is never repeated
-	                 //just using the size of the array wouldnt be accurate as clients can be removed and added and could have repeating numbers
+	                 //just using the size of the array wouldn't be accurate as clients can be removed and added and could have repeating numbers
 	int numOfCustomers;//same as above except for customers
 	int numOfTickets;//same as above except for tickets
 
@@ -122,7 +122,6 @@ public class Theater implements Serializable {
     public void listCustomers(){//print all customers
         for(int i = 0; i < customerList.size(); i++){
             System.out.println(customerList.get(i));
-            System.out.println("\n");
         }
     }
     
@@ -375,7 +374,7 @@ public class Theater implements Serializable {
     	boolean found = false;
 
     	for(int i = 0; i < playList.size(); i++){
-    		if(playList.get(i).getPlayStartDate() == startDate){
+    		if(startDate.compareTo(playList.get(i).getPlayStartDate()) == 0){
     			price = playList.get(i).getTicketPrice();
     			clientID = playList.get(i).getClientID();
     			found = true;
