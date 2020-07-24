@@ -14,10 +14,7 @@ public class Driver {
 		Scanner clientAns = new Scanner(System.in);
 		int ans = 0;
 
-		String theaterName = "Random Theater";
-		int theaterCapacity = 100;
-
-		Theater theater = new Theater(theaterName, theaterCapacity);
+		Theater theater = new Theater("Random Theater", 100);
 
 		showAllCommands();
 
