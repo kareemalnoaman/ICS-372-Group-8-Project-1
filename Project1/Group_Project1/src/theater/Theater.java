@@ -23,17 +23,14 @@ public class Theater implements Serializable {
     static String fileSeparator = File.separator;
     static String theaterDirectory = "theater";
     static DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-	int numOfClients;//holds total number of clients ever had, using this number to ensure ID is never repeated
+	int numOfClients = 0;//holds total number of clients ever had, using this number to ensure ID is never repeated
 	                 //just using the size of the array wouldn't be accurate as clients can be removed and added and could have repeating numbers
-	int numOfCustomers;//same as above except for customers
-	int numOfTickets;//same as above except for tickets
+	int numOfCustomers = 0;//same as above except for customers
+	int numOfTickets = 0;//same as above except for tickets
 
     public Theater(String theaterName, int capacity) {
         this.theaterName = theaterName;
         this.capacity = capacity;
-        this.numOfClients = 0;
-        this.numOfCustomers = 0;
-        this.numOfTickets = 0;
     }
 
     public void changeCapacity(int capacity){//method to change capacity
