@@ -60,8 +60,8 @@ class CreditCard {
     @Override
     public String toString() {
         return "CreditCard{" +
-                "Credit Card number=" + creditCardNumber +
-                ", Expiry date='" + expiryDate + '\'' +
+                "credit card number=" + creditCardNumber +
+                ", expiry date='" + expiryDate + '\'' +
                 '}';
     }
 
