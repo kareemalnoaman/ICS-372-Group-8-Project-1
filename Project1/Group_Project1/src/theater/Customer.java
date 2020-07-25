@@ -37,12 +37,12 @@ public class Customer {
         }
 
         return "Customer{" +
-                "customerName='" + customerName + '\'' +
-                ", customerAddress='" + customerAddress + '\'' +
-                ", customerPhone='" + customerPhone + '\'' +
-                ", customerID=" + customerID +
-                ", creditCardList=" + creditCardList +
-                ", ticketList=" + ticketList +
+                "Customer Name='" + customerName + '\'' +
+                ", Customer Address='" + customerAddress + '\'' +
+                ", Customer Phone='" + customerPhone + '\'' +
+                ", Customer ID=" + customerID +
+                ", CreditCard List=" + creditCardList +
+                ", Ticket List=" + ticketList +
                 '}';
     }
 }//end customer
@@ -60,8 +60,8 @@ class CreditCard {
     @Override
     public String toString() {
         return "CreditCard{" +
-                "creditCardNumber=" + creditCardNumber +
-                ", expiryDate='" + expiryDate + '\'' +
+                "Credit Card number=" + creditCardNumber +
+                ", Expiry date='" + expiryDate + '\'' +
                 '}';
     }
 

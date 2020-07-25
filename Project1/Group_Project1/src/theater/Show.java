@@ -60,7 +60,7 @@ public class Show {
 
 	@Override
 	public String toString() {
-		return "\n Client Id = \t" + clientID + ", Show Name =\t" + playName + ", Show StartDate =\t" + playStartDate
+		return "\n Client ID = \t" + clientID + ", Show Name =\t" + playName + ", Show Start Date =\t" + playStartDate
 				+ ", Show End Date = \t" + playEndDate;
 	}
 

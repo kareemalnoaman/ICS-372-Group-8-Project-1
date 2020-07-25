@@ -22,8 +22,8 @@ public class Ticket {
     public String toString() {
         return getClass().getSimpleName() + "{" +
                 "price=" + price +
-                ", serialNum=" + serialNum +
-                ", showDate=" + showDate +
+                ", serial number=" + serialNum +
+                ", show date=" + showDate +
                 '}';
     }
 
