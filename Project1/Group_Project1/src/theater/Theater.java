@@ -416,6 +416,7 @@ public class Theater implements Serializable {
 		for(int i = 0; i < clientList.size(); i++){
 			if(clientID == clientList.get(i).getClientID()){
 				clientList.get(i).addBalanceDue((price * quantity) / 2);
+				break;
 			}
 		}
 
@@ -449,13 +450,10 @@ public class Theater implements Serializable {
 
 	public void printTicketsForDate(Date date){
 
-    	Date showDate;
-
-		System.out.println("Tickets for date" + date + ":");
+		System.out.println("Tickets for date " + date + ":");
     	for(int i = 0; i < customerList.size(); i++){
     		for(int j = 0; j < customerList.get(i).ticketList.size(); j++){
-    			showDate = customerList.get(i).ticketList.get(j).getShowDate();
-    			if(date.compareTo(showDate) == 0){
+    			if(date.compareTo(customerList.get(i).ticketList.get(j).getShowDate()) == 0){
 					System.out.println(customerList.get(i).ticketList.get(j));
 				}
 			}
