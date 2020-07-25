@@ -389,18 +389,21 @@ public class Theater implements Serializable {
 
     	for(int i = 0; i < customerList.size(); i++){
     		if(customerID == customerList.get(i).customerID){
-				for(int j = 0; j < quantity; j++) {
-					if(ticketTypeIdentifier == 13) {
-						customerList.get(i).ticketList.add(new Ticket(price, startDate, ++numOfTickets));
-					}else if (ticketTypeIdentifier == 14){
+
+    		    if(ticketTypeIdentifier == 13) {
+    		        for(int j = 0; j < quantity; j++)
+    		            customerList.get(i).ticketList.add(new Ticket(price, startDate, ++numOfTickets));
+    		    }else if (ticketTypeIdentifier == 14){
+                    for(int j = 0; j < quantity; j++)
 						customerList.get(i).ticketList.add(new AdvanceTicket(price, startDate, ++numOfTickets));
-					}else if (ticketTypeIdentifier == 15){
+    		    }else if (ticketTypeIdentifier == 15){
+                    for(int j = 0; j < quantity; j++)
 						customerList.get(i).ticketList.add(new StudentAdvanceTicket(price, startDate, ++numOfTickets));
-					}else {
-						System.out.println("Error: Ticket type unspecified;");
-						return;
-					}
-				}
+    		    }else {
+    		        System.out.println("Error: Ticket type unspecified;");
+    		        return;
+    		    }
+
     			found = true;
     			break;
 			}
