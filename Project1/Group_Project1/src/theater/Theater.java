@@ -33,6 +33,7 @@ public class Theater implements Serializable {
         this.capacity = capacity;
         this.numOfClients = 0;
         this.numOfCustomers = 0;
+        this.numOfTickets = 0;
     }
 
     public void changeCapacity(int capacity){//method to change capacity
